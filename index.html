@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Weather | Live Forecast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i data-lucide="cloud-sun"></i>
+                <h1>WizCast</h1>
+            </div>
+            <div class="search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="city-input" placeholder="Search city (e.g., London, Tokyo)..."
+                    autocomplete="off">
+                <button id="search-btn">Search</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="weather-display" class="hidden">
+                <div class="current-weather">
+                    <div class="location-info">
+                        <h2 id="city-name">--</h2>
+                        <p id="current-date">--</p>
+                    </div>
+                    <div class="weather-main">
+                        <div class="temp-container">
+                            <span id="temperature">--</span>
+                            <span class="unit">°C</span>
+                        </div>
+                        <div class="condition-container">
+                            <i id="weather-icon" data-lucide="cloud"></i>
+                            <span id="weather-description">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <i data-lucide="wind"></i>
+                        <div class="detail-info">
+                            <span class="label">Wind Speed</span>
+                            <span class="value" id="wind-speed">-- km/h</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i data-lucide="droplets"></i>
+                        <div class="detail-info">
+                            <span class="label">Humidity</span>
+                            <span class="value" id="humidity">-- %</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i data-lucide="thermometer"></i>
+                        <div class="detail-info">
+                            <span class="label">Feels Like</span>
+                            <span class="value" id="feels-like">-- °C</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i data-lucide="eye"></i> <!-- using eye for visibility or just generic observation -->
+                        <div class="detail-info">
+                            <span class="label">Elevation</span> <!-- OpenMeteo gives elevation easily -->
+                            <span class="value" id="elevation">-- m</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <div id="error-message" class="hidden">
+                <i data-lucide="alert-circle"></i>
+                <p id="error-text">City not found. Please try again.</p>
+            </div>
+
+            <div id="initial-state">
+                <i data-lucide="globe-2" class="hero-icon"></i>
+                <h2>Explore Weather Worldwide</h2>
+                <p>Enter a city name to get real-time weather updates.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
